@@ -41,11 +41,13 @@ import DashBoardMain from "./components/vendor/DashBoardMain.jsx";
 // Common
 import ProtectedRoute from "./utils/ProtectedRoutes.jsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+import ScrollToTop from "./components/common/ScrollToTop";
+import BackToTop from "./pages/common/BackToTop";
 
 const App = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   // Modal states
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
@@ -56,32 +58,33 @@ const App = () => {
   const handleOpenLogin = () => {
     setShowLoginModal(true);
     setShowRegisterModal(false);
-    document.body.classList.add('modal-open');
+    document.body.classList.add("modal-open");
   };
 
   const handleOpenRegister = () => {
     setShowRegisterModal(true);
     setShowLoginModal(false);
-    document.body.classList.add('modal-open');
+    document.body.classList.add("modal-open");
   };
 
   const handleCloseModals = () => {
     setShowLoginModal(false);
     setShowRegisterModal(false);
     // Re-enable body scroll
-    document.body.classList.remove('modal-open');
+    document.body.classList.remove("modal-open");
   };
 
   return (
     <>
       {/* Conditionally render Navbar */}
       {location.pathname !== "/admin" && (
-        <Navbar 
-          onOpenLogin={handleOpenLogin} 
-          onOpenRegister={handleOpenRegister} 
+        <Navbar
+          onOpenLogin={handleOpenLogin}
+          onOpenRegister={handleOpenRegister}
         />
       )}
 
+      <ScrollToTop />
       <main>
         <Routes>
           {/* Customer Routes */}
@@ -145,7 +148,7 @@ const App = () => {
           <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </main>
-
+      <BackToTop />
       <Chatbot />
 
       {/* Conditionally render Footer */}
@@ -153,14 +156,14 @@ const App = () => {
 
       {/* Auth Modals */}
       {showLoginModal && (
-        <Login 
+        <Login
           onClose={handleCloseModals}
           onSwitchToRegister={handleOpenRegister}
         />
       )}
-      
+
       {showRegisterModal && (
-        <Register 
+        <Register
           onClose={handleCloseModals}
           onSwitchToLogin={handleOpenLogin}
         />
