@@ -1,8 +1,8 @@
 import React from "react";
 // import serviceList from "../../components/customer/serviceList/CatogoryData.jsx";
 import "./ServiceList.css";
-import Filter from "./../../components/customer/servicelist/Filter";
-import ServiceCard from "./../../components/customer/servicelist/ServiceCard";
+import Filter from "./../../components/customer/serviceList/Filter";
+import ServiceCard from "./../../components/customer/serviceList/ServiceCard";
 import { useNavigate, useParams } from "react-router-dom";
 import categories from "../../utils/CatogoryData.jsx";
 
