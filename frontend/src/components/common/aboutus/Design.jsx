@@ -1,5 +1,5 @@
 import React from "react";
-import "./design.css";
+import "./Design.css";
 import chatIcon from "../../../assets/aboutUs/logo.png";
 import offers from "../../../assets/aboutUs/offers.jpeg";
 import wedding from "../../../assets/aboutUs/wedding.jpeg";
