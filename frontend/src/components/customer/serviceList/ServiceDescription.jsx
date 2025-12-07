@@ -50,10 +50,10 @@ const ServiceDescription = ({ service }) => {
           </div>
           <div>
             {isWishlisted ? (
-              "Wishlisted"
+              "Added to cart"
             ) : (
               <span className="wishlist-text">
-                <span className="plusSign">+</span> Wishlist
+                <span className="plusSign">+</span> Add to Cart
               </span>
             )}
           </div>

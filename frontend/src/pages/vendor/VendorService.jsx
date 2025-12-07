@@ -36,11 +36,21 @@ function VendorService({ currentStep }) {
   const fileInputRef = useRef(null);
 
   const categories = [
-    "DJ",
-    "Orchestra",
-    "Food Catering",
-    "Florist",
-    "Tent House",
+    "DJ Services",
+    "Live Musical Band",
+    "Venue Styling and Decor",
+    "Photo and Video",
+    "Hindu Priest",
+    "Magic Shows",
+    "Cultural Troupe",
+    "Islamic Priest",
+    "Christian Priest",
+    "Catering",
+    "Makeup & Mehendi Artists",
+    "Floral Decor",
+    "Wedding Transport",
+    "Fireworks",
+    "Custom Invitation Design & Printing",
   ];
   const allLocations = [
     "Bhubaneswar",

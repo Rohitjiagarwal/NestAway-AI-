@@ -21,8 +21,8 @@ const CustomerNegotiationModal = () => {
   const [venueInput, setVenueInput] = useState(venueLocation);
 
   const bookingDetails = {
-    vendorName: "Horse-Carriage Odisha",
-    CurrentAmount: "1500",
+    vendorName: "NestAway AI Kota",
+    CurrentAmount: "As listed",
   };
 
   const formatTime = (seconds) => {
@@ -48,7 +48,6 @@ const CustomerNegotiationModal = () => {
       venueLocation: venueInput,
       proposedPrice,
       date: eventDate,
-      originalPrice: bookingDetails.CurrentAmount,
       type: "Negotiation Requested",
     };
 
@@ -74,7 +73,6 @@ const CustomerNegotiationModal = () => {
       venueLocation: venueInput,
       proposedPrice: bookingDetails.CurrentAmount,
       date: eventDate,
-      originalPrice: bookingDetails.CurrentAmount,
       type: "No Negotiation Requested",
     };
 
@@ -161,9 +159,6 @@ const CustomerNegotiationModal = () => {
             {eventDate
               ? new Date(eventDate).toLocaleDateString()
               : "Not provided"}
-          </p>
-          <p>
-            <strong>Listed Price:</strong> ₹{bookingDetails.CurrentAmount}
           </p>
         </div>
 

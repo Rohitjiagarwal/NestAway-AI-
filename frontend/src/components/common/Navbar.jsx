@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import UserProfileIcon from "../../pages/common/UserProfileIcon.jsx";
 import toast from "react-hot-toast";
-
+import { FaShoppingCart } from "react-icons/fa";
 import "./Navbar.css";
 import { CgProfile } from "react-icons/cg";
 
@@ -206,7 +206,7 @@ const Navbar = ({ onOpenLogin, onOpenRegister }) => {
     <div className="navbar">
       {/* Logo */}
       <div className="logo">
-        <span onClick={handleHomeClick}>EVENTSBRIDGE</span>
+        <span onClick={handleHomeClick}>Nest AI Kota</span>
       </div>
 
       <div className="search-and-nav-icons-container ">
@@ -236,7 +236,7 @@ const Navbar = ({ onOpenLogin, onOpenRegister }) => {
                 {!userFirstName ? (
                   <>
                     <CgProfile className="text-2xl" />
-                    <span className="font-medium">Login</span>
+                    <span className="font-medium">User Login</span>
                   </>
                 ) : (
                   <>
@@ -445,6 +445,20 @@ const Navbar = ({ onOpenLogin, onOpenRegister }) => {
                 </div>
               </div>
             )}
+          </div>
+
+          {/* 🛒 Cart Icon */}
+          <div
+            className="nav-item cart-icon-container"
+            onClick={() => navigate("/cart")}
+          >
+            <FaShoppingCart
+              className="cart-icon"
+              style={{ cursor: "pointer" }}
+              title="View Cart"
+            />
+            <span className="cart-label"
+            >Cart</span>
           </div>
 
           {/* Three Dots Dropdown */}

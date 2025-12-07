@@ -16,7 +16,6 @@ const UserDetails = () => {
     district: "",
     city: "",
     pincode: "",
-    country: "",
   });
 
   useEffect(() => {

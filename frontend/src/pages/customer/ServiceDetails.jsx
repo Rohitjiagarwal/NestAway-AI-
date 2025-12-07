@@ -13,22 +13,25 @@ import DJServiceCard from "../../components/customer/ServiceDetails/ServiceCard.
 import ReviewList from "../../components/customer/ServiceDetails/ReviewList";
 import ReviewForm from "../../components/customer/ServiceDetails/ReviewForm.jsx";
 
+import PopUp from "../../components/customer/CustomerNegotiationModal"; 
+// 💥 Yeh import zaroor correct path pe hona chahiye
+
 const Service = () => {
   const { serviceId } = useParams();
+
+  // Popup open/close state
+  const [open, setOpen] = useState(false);
 
   // Get the service object from CategoryData
   const service = CategoryData.flatMap((cat) => cat.services).find(
     (srv) => srv.id === serviceId
   );
 
-  // If service not found
   if (!service) return <p>Service not found</p>;
 
   const mediaList = service.img.map((src) => ({ type: "image", src }));
   const [selectMedia, setSelectMedia] = useState(mediaList[0]);
   const [isWishlisted, setIsWishlisted] = useState(false);
-
-  // ✅ For syncing new review from ReviewForm to ReviewList
   const [latestReview, setLatestReview] = useState(null);
 
   const handleClick = () => {
@@ -52,6 +55,7 @@ const Service = () => {
                 </div>
               ))}
             </div>
+
             <div className="big-image">
               <img src={selectMedia.src} alt="Selected media" />
             </div>
@@ -67,22 +71,24 @@ const Service = () => {
               </div>
               <div>
                 {isWishlisted ? (
-                  "Wishlisted"
+                  "Added to Cart"
                 ) : (
                   <span className="wishlist-text">
-                    <span className="plusSign">+</span> Wishlist
+                    <span className="plusSign">+</span> Add to cart
                   </span>
                 )}
               </div>
             </button>
 
-            <button className="buynow">Book Now</button>
+            {/* ⭐ BOOK NOW Button - Popup Open */}
+            <button className="buynow" onClick={() => setOpen(true)}>
+              Book Now
+            </button>
           </div>
         </div>
 
         {/* Right Section */}
         <div className="right-scrollable">
-          {/* Dynamic Service Info */}
           <DJServiceCard service={service} />
 
           <div className="why-choose">
@@ -93,31 +99,20 @@ const Service = () => {
               <li>Experience With All Cultures & Traditions</li>
               <li>Custom Packages & Friendly Support</li>
             </ul>
-          </div> 
-
-          
+          </div>
 
           <div className="reviews">
             <h3>DJ Ratings & Reviews</h3>
+
             <RatingDetails />
             <hr />
 
-            {/* ✅ Update latestReview on submission */}
-             <h4 style={{ marginTop: "30px", fontWeight: "bold" }}>
+            <h4 style={{ marginTop: "30px", fontWeight: "bold" }}>
               Write a Review
             </h4>
             <ReviewForm onNewReview={(review) => setLatestReview(review)} />
 
-             {/* ✅ Pass latestReview to ReviewList */}
             <ReviewList newReview={latestReview} />
-
-             
-
-
-            
-
-           
-           
           </div>
         </div>
       </div>
@@ -131,6 +126,9 @@ const Service = () => {
           ))}
         </div>
       </div>
+
+      {/* ⭐ POPUP MODAL */}
+      {open && <PopUp onClose={() => setOpen(false)} />}
     </div>
   );
 };
