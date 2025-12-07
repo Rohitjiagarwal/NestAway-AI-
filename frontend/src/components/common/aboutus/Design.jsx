@@ -1,14 +1,14 @@
 import React from "react";
 import "./Design.css";
 import chatIcon from "../../../assets/aboutUs/logo.png";
-import offers from "../../../assets/aboutUs/offers.jpeg";
-import wedding from "../../../assets/aboutUs/wedding.jpeg";
-import party from "../../../assets/aboutUs/party.jpeg";
-import tenthouse from "../../../assets/aboutUs/tenthouse.jpeg";
+import offers from "../../../assets/aboutUs/OFFERS.jpeg";
+import wedding from "../../../assets/aboutUs/WEDDING.jpeg";
+import party from "../../../assets/aboutUs/PARTY.jpeg";
+import tenthouse from "../../../assets/aboutUs/TENTHOUSE.jpeg";
 import catering from "../../../assets/aboutUs/catering_service.jpg";
-import horseCart from "../../../assets/aboutUs/horseCart.jpeg";
-import magician from "../../../assets/aboutUs/magician.jpeg";
-import flowers from "../../../assets/aboutUs/flowers.jpeg";
+import horseCart from "../../../assets/aboutUs/HORSECART.jpeg";
+import magician from "../../../assets/aboutUs/MAGICIAN.jpeg";
+import flowers from "../../../assets/aboutUs/FLOWERS.jpeg";
 
 const Design = () => {
   return (
